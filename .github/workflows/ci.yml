@@ -31,6 +31,6 @@ jobs:
     # - name: Change d to Repo
     #   run:  cd /github/workspace
     - name: Earthly auth for logs
-      run: earthly account login --token $EARTHLY_TOKEN
+      run: earthly account login --token ${{ secrets.EARTHLY_TOKEN }}
     - name: Run build
       run: earthly --ci --push +build
