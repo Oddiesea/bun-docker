@@ -10,6 +10,7 @@ jobs:
     env:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      EARTHLY_TOKEN: ${{ secrets.EARTHLY_TOKEN }}
       FORCE_COLOR: 1
     steps:
     - uses: actions/checkout@v3
@@ -31,6 +32,6 @@ jobs:
     # - name: Change d to Repo
     #   run:  cd /github/workspace
     - name: Earthly auth for logs
-      run: earthly account login --token ${{ secrets.EARTHLY_TOKEN }}
+      run: earthly account login --token $EARTHLY_TOKEN
     - name: Run build
       run: earthly --ci --push +build
