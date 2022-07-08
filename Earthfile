@@ -20,4 +20,4 @@ deps:
 
 build:
     FROM +deps
-    SAVE IMAGE oddiesea/bun:latest
+    SAVE IMAGE --push oddiesea/bun:latest
